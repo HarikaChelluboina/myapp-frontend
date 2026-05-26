@@ -1,1 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickBite - Food Delivery</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #ff5722;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .hero {
+      height: 350px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 24px;
+      background: #ff5722;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .hero button:hover {
+      background: #e64a19;
+    }
+
+    .menu-section {
+      padding: 50px 40px;
+    }
+
+    .menu-section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card-content h3 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #ff5722;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .card-content button {
+      width: 100%;
+      padding: 10px;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .card-content button:hover {
+      background: #e64a19;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .status {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🍔 QuickBite</h1>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Menu</a>
+      <a href="#">Orders</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Delicious Food Delivered Fast</h2>
+    <p>Fresh meals from your favorite restaurants</p>
+    <button onclick="showMessage()">Order Now</button>
+  </section>
+
+  <section class="menu-section">
+    <h2>Popular Dishes</h2>
+
+    <div class="menu-grid">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Burger">
+        <div class="card-content">
+          <h3>Cheese Burger</h3>
+          <p>Loaded with cheese and crispy fries.</p>
+          <div class="price">₹199</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1601924582975-7e6ec4c2d4a1?auto=format&fit=crop&w=800&q=80" alt="Pizza">
+        <div class="card-content">
+          <h3>Pepperoni Pizza</h3>
+          <p>Hot and cheesy Italian pizza.</p>
+          <div class="price">₹349</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Salad">
+        <div class="card-content">
+          <h3>Healthy Salad</h3>
+          <p>Fresh veggies with tasty dressing.</p>
+          <div class="price">₹149</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=80" alt="Pasta">
+        <div class="card-content">
+          <h3>Italian Pasta</h3>
+          <p>Creamy white sauce pasta bowl.</p>
+          <div class="price">₹279</div>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 QuickBite | Food Delivery App</p>
+  </footer>
+
+  <div class="status" id="statusBox">
+    ✅ Pipeline Test App Running
+  </div>
+
+  <script>
+    function showMessage() {
+      alert("Order functionality coming soon!");
+    }
+
+    console.log("QuickBite app loaded successfully.");
+    console.log("Testing S3 + CloudFront deployment pipeline.");
+  </script>
+
+</body>
+</html>
