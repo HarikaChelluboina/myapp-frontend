@@ -1,248 +1,482 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QuickBite - Food Delivery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickBite - Food Delivery</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-    body {
-      background: #f4f4f4;
-      color: #333;
-    }
+body{
+    background:#f5f7fa;
+    color:#333;
+}
 
-    header {
-      background: #ff5722;
-      color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+/* HEADER */
 
-    header h1 {
-      font-size: 28px;
-    }
+header{
+    background:#ff5a1f;
+    color:white;
+    padding:18px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
 
-    .hero {
-      height: 350px;
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:600;
+    transition:.3s;
+}
 
-    .hero h2 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
+nav a:hover{
+    opacity:.8;
+}
 
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
+/* HERO */
 
-    .hero button {
-      padding: 12px 24px;
-      background: #ff5722;
-      border: none;
-      color: white;
-      font-size: 18px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.hero{
+    height:80vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
 
-    .hero button:hover {
-      background: #e64a19;
-    }
+.hero h1{
+    font-size:60px;
+    margin-bottom:15px;
+}
 
-    .menu-section {
-      padding: 50px 40px;
-    }
+.hero p{
+    font-size:22px;
+    margin-bottom:25px;
+}
 
-    .menu-section h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 36px;
-    }
+.hero button{
+    background:#ff5a1f;
+    border:none;
+    color:white;
+    padding:15px 35px;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
+.hero button:hover{
+    background:#e64a19;
+}
 
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
+.version{
+    margin-top:20px;
+    background:#4caf50;
+    padding:10px 18px;
+    border-radius:20px;
+    font-size:14px;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+/* STATS */
 
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:60px;
+    background:white;
+}
 
-    .card-content {
-      padding: 20px;
-    }
+.stat-card{
+    text-align:center;
+    padding:30px;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
 
-    .card-content h3 {
-      margin-bottom: 10px;
-    }
+.stat-card h2{
+    color:#ff5a1f;
+    font-size:40px;
+}
 
-    .price {
-      color: #ff5722;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
+.stat-card p{
+    margin-top:10px;
+}
 
-    .card-content button {
-      width: 100%;
-      padding: 10px;
-      background: #ff5722;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+/* SECTION */
 
-    .card-content button:hover {
-      background: #e64a19;
-    }
+.section-title{
+    text-align:center;
+    font-size:42px;
+    margin:50px 0 30px;
+}
 
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+/* FOOD CARDS */
 
-    .status {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #4caf50;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-  </style>
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    padding:0 40px 60px;
+}
+
+.food-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-5px);
+}
+
+.food-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.food-content{
+    padding:20px;
+}
+
+.food-content h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#ff5a1f;
+    font-size:24px;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+.food-content button{
+    width:100%;
+    background:#ff5a1f;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* FEATURES */
+
+.features{
+    background:white;
+    padding:60px 40px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature{
+    padding:25px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.feature h3{
+    margin-bottom:10px;
+}
+
+/* REVIEWS */
+
+.reviews{
+    padding:60px 40px;
+}
+
+.review-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.review{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+/* FOOTER */
+
+footer{
+    background:#1f2937;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+footer p{
+    margin-top:8px;
+}
+
+/* STATUS */
+
+.status{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#4caf50;
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:40px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+header{
+    flex-direction:column;
+    gap:15px;
+}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🍔 QuickBite</h1>
+<header>
+    <div class="logo">🍔 QuickBite</div>
 
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Menu</a>
-      <a href="#">Orders</a>
-      <a href="#">Contact</a>
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">Restaurants</a>
+        <a href="#">Orders</a>
+        <a href="#">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <section class="hero">
-    <h2>Delicious Food Delivered Fast</h2>
-    <p>Fresh meals from your favorite restaurants</p>
-    <button onclick="showMessage()">Order Now</button>
-  </section>
+<section class="hero">
 
-  <section class="menu-section">
-    <h2>Popular Dishes</h2>
+    <h1>Food Delivered In Minutes</h1>
 
-    <div class="menu-grid">
+    <p>
+        Fast, fresh and delicious meals delivered directly to your door.
+    </p>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80" alt="Burger">
-        <div class="card-content">
-          <h3>Cheese Burger</h3>
-          <p>Loaded with cheese and crispy fries.</p>
-          <div class="price">₹199</div>
-          <button>Add to Cart</button>
-        </div>
-      </div>
+    <button onclick="orderNow()">
+        Order Now
+    </button>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1601924582975-7e6ec4c2d4a1?auto=format&fit=crop&w=800&q=80" alt="Pizza">
-        <div class="card-content">
-          <h3>Pepperoni Pizza</h3>
-          <p>Hot and cheesy Italian pizza.</p>
-          <div class="price">₹349</div>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Salad">
-        <div class="card-content">
-          <h3>Healthy Salad</h3>
-          <p>Fresh veggies with tasty dressing.</p>
-          <div class="price">₹149</div>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=80" alt="Pasta">
-        <div class="card-content">
-          <h3>Italian Pasta</h3>
-          <p>Creamy white sauce pasta bowl.</p>
-          <div class="price">₹279</div>
-          <button>Add to Cart</button>
-        </div>
-      </div>
-
+    <div class="version">
+        🚀 Live on AWS | Jenkins CI/CD | Version 2.0
     </div>
-  </section>
 
-  <footer>
-    <p>© 2026 QuickBite | Food Delivery App</p>
-  </footer>
+</section>
 
-  <div class="status" id="statusBox">
-    ✅ Pipeline Test App Running
-  </div>
+<section class="stats">
 
-  <script>
-    function showMessage() {
-      alert("Order functionality coming soon!");
-    }
+    <div class="stat-card">
+        <h2>500+</h2>
+        <p>Partner Restaurants</p>
+    </div>
 
-    console.log("QuickBite app loaded successfully.");
-    console.log("Testing S3 + CloudFront deployment pipeline.");
-  </script>
+    <div class="stat-card">
+        <h2>50K+</h2>
+        <p>Orders Delivered</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>20 min</h2>
+        <p>Average Delivery Time</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>4.9★</h2>
+        <p>Customer Rating</p>
+    </div>
+
+</section>
+
+<h2 class="section-title">Popular Dishes</h2>
+
+<section class="food-grid">
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80">
+<div class="food-content">
+<h3>Cheese Burger</h3>
+<p>Loaded with cheese and crispy fries.</p>
+<div class="price">₹199</div>
+<button>Add to Cart</button>
+</div>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80">
+<div class="food-content">
+<h3>Pepperoni Pizza</h3>
+<p>Authentic Italian pizza.</p>
+<div class="price">₹349</div>
+<button>Add to Cart</button>
+</div>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80">
+<div class="food-content">
+<h3>Healthy Salad</h3>
+<p>Fresh vegetables and healthy toppings.</p>
+<div class="price">₹149</div>
+<button>Add to Cart</button>
+</div>
+</div>
+
+<div class="food-card">
+<img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=900&q=80">
+<div class="food-content">
+<h3>Chicken Pasta</h3>
+<p>Creamy pasta with grilled chicken.</p>
+<div class="price">₹299</div>
+<button>Add to Cart</button>
+</div>
+</div>
+
+</section>
+
+<section class="features">
+
+<h2 class="section-title">Why Choose QuickBite?</h2>
+
+<div class="feature-grid">
+
+<div class="feature">
+<h3>⚡ Fast Delivery</h3>
+<p>Get your food delivered within minutes.</p>
+</div>
+
+<div class="feature">
+<h3>🍽 Huge Selection</h3>
+<p>Hundreds of restaurants and cuisines.</p>
+</div>
+
+<div class="feature">
+<h3>💳 Secure Payments</h3>
+<p>Safe and secure payment options.</p>
+</div>
+
+<div class="feature">
+<h3>📍 Live Tracking</h3>
+<p>Track your delivery in real-time.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="reviews">
+
+<h2 class="section-title">Customer Reviews</h2>
+
+<div class="review-grid">
+
+<div class="review">
+★★★★★
+<br><br>
+Amazing delivery speed and delicious food.
+<br><br>
+<b>- Rahul</b>
+</div>
+
+<div class="review">
+★★★★★
+<br><br>
+Very easy ordering experience.
+<br><br>
+<b>- Priya</b>
+</div>
+
+<div class="review">
+★★★★★
+<br><br>
+Best food delivery app I've used.
+<br><br>
+<b>- Arjun</b>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>🍔 QuickBite</h3>
+
+<p>
+Powered by AWS S3 + CloudFront + Route53 + Jenkins
+</p>
+
+<p>
+Deployment Version 2.0
+</p>
+
+<p>
+© 2026 QuickBite. All Rights Reserved.
+</p>
+
+</footer>
+
+<div class="status">
+✅ Live via CloudFront
+</div>
+
+<script>
+
+function orderNow(){
+    alert("🎉 Welcome to QuickBite!");
+}
+
+console.log("QuickBite Version 2.0");
+console.log("Successfully deployed via Jenkins Pipeline");
+
+</script>
 
 </body>
 </html>
+```
